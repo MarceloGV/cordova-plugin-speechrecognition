@@ -120,7 +120,7 @@ public class SpeechRecognition extends CordovaPlugin {
 
         Boolean showPopup = args.optBoolean(4, true);
 
-        //startListening(lang, matches, prompt, showPopup);
+        startListening(lang, matches, prompt, showPopup);
 
         return true;
       }
