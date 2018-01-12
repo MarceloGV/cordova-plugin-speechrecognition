@@ -187,7 +187,7 @@ public class SpeechRecognition extends CordovaPlugin {
         });
 		PluginResult res = new PluginResult(PluginResult.Status.NO_RESULT);
         res.setKeepCallback(true);
-        this.speechRecognizerCallbackContext.sendPluginResult(res);
+        this.callbackContext.sendPluginResult(res);
       /*view.post(new Runnable() {
         @Override
         public void run() {
