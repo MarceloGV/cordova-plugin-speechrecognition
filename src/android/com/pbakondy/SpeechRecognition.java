@@ -31,6 +31,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import android.os.Handler;
+import android.os.Looper;
+
 public class SpeechRecognition extends CordovaPlugin {
 
   private static final String LOG_TAG = "SpeechRecognition";
