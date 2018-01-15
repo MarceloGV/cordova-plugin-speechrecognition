@@ -300,7 +300,7 @@ public class SpeechRecognition extends CordovaPlugin {
       String errorMessage = getErrorText(errorCode);
       Log.d(LOG_TAG, "Error: " + errorMessage);
       if(errorCode == SpeechRecognizer.ERROR_RECOGNIZER_BUSY)
-	      this.stop();
+	      stop();
       callbackContext.error(errorMessage);
     }
 
