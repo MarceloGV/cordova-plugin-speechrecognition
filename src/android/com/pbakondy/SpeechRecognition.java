@@ -299,8 +299,6 @@ public class SpeechRecognition extends CordovaPlugin {
     public void onError(int errorCode) {
       String errorMessage = getErrorText(errorCode);
       Log.d(LOG_TAG, "Error: " + errorMessage);
-      if(errorCode == SpeechRecognizer.ERROR_RECOGNIZER_BUSY)
-		      stop();
       callbackContext.error(errorMessage);
     }
 
@@ -357,6 +355,14 @@ public class SpeechRecognition extends CordovaPlugin {
           message = "No match";
           break;
         case SpeechRecognizer.ERROR_RECOGNIZER_BUSY:
+          view.post(new Runnable() {
+            @Override
+            public void run() {
+              recognizer = SpeechRecognizer.createSpeechRecognizer(activity);
+              SpeechRecognitionListener listener = new SpeechRecognitionListener();
+              recognizer.setRecognitionListener(listener);
+            }
+          });
           message = "RecognitionService busy";
           break;
         case SpeechRecognizer.ERROR_SERVER:
